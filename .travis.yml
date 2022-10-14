@@ -16,8 +16,8 @@ before_script:
 script:
   - docker --version # print the version for logging
   - docker build -t slow-node-base .
-  - docker tag slow-node-base stephenobia/simple-node:latest
+  - docker tag slow-node-base stephenobia/slow-node-base:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push YOUR_DOCKER_HUB/simple-node
+  - docker push stephenobia/slow-node-base
